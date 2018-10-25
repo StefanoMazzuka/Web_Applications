@@ -12,13 +12,6 @@ body {
     background-image: url(../images/fondo.jpg);
 }
 
-div.header {    
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-}
-
 div.nav {
     padding-left: 10%;
     font: 20px 'MisoRegular';
@@ -54,7 +47,7 @@ a.nav + a.nav {
 }
 
 div.main {
-    margin-top: 15%;
+    border: solid;
     display: flex;
     align-items: center;
     flex-direction: column;
