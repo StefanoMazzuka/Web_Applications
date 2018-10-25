@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "MisoRegular";
+    src: url("../resources/MisoRegular.otf");
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    background-image: url(../images/fondo.jpg);
+}
+
+div.header {    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+div.nav {
+    padding-left: 10%;
+    font: 20px 'MisoRegular';
+    background-color: #EBACBC;
+}
+
+h1 {
+    color: #fff;
+    letter-spacing: 50px;
+    font: 80px 'MisoRegular';
+}
+
+div.title {
+    display: flex;
+    justify-content: center; /*Centrar el objeto dentro del div*/
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+a.nav {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+a.nav:hover {
+    background-color: #E59DA9;
+}
+
+a.nav + a.nav {
+    margin-left: 10px;
+}
+
+div.main {
+    margin-top: 15%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font: 20px 'MisoRegular';
+}
+
+form {
+    background-color: #DD808F;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+     border: solid;
+}
+
+div.data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

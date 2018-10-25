@@ -1,0 +1,5 @@
+Stefano Mazzuka
+Yelim Kim
+
+Cambiamos el orden andiendo una propiedad Order al div que queramos ordenar.
+Se agrega un id a cada elemento y dentro, el orden que tiene.

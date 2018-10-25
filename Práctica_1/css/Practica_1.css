@@ -1,0 +1,118 @@
+@font-face {
+    font-family: "MisoRegular";
+    src: url("MisoRegular.otf");
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    background-image: url(fondo.jpg);
+}
+
+div.header {    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+    letter-spacing: 50px;
+    font: 80px 'MisoRegular';
+}
+
+div.titulo {
+    display: flex;
+    justify-content: center; /*Centrar el objeto dentro del div*/
+    align-items: center;
+}
+
+div.usuario {
+    display: flex;
+    justify-content: flex-end; /*Centrar el objeto dentro del div*/
+    align-items: center;
+    margin: 10px;
+}
+
+div.datosUsuario {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font: 20px 'MisoRegular';
+}
+
+img {
+    width: 52px;
+    height: 52px;
+}
+
+div.main {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-right: 25%;
+    font: 30px 'MisoRegular';
+}
+
+div.tarea_no_finalizada {
+    margin-top: 25px;
+    padding: 10px;
+    border: solid #EBACBC;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.tarea_finalizada {
+    margin-top: 25px;
+    padding: 10px;
+    border: solid #EBACBC;
+    text-decoration:line-through;
+}
+
+div.texto_tara {
+    display: flex;
+    flex-direction: row;
+}
+
+div.tags {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center; /*Centrar el objeto dentro del div*/
+    align-items: center;
+}
+
+.tag {
+    color: white;
+    font-size: 60%;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid white 2px;
+}
+
+div.agregar_tarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.eliminar_tareas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #EBACBC;
+    color: black;
+}

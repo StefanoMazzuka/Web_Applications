@@ -1,0 +1,46 @@
+
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+h1:after {
+    content: 'Lista de tareas';
+    visibility: visible;
+    font-weight: normal;
+    text-align: left;
+    font-family: 18px Arial, Helvetica, sans-serif;
+}
+
+h1{
+    visibility: hidden;
+}
+
+div.usuario_header{
+    display: none;
+}
+
+div.marcar_finalizada{
+    display: none;
+}
+
+div.agregar_tarea{
+    display: none;
+}
+
+div.eliminar_tareas{
+    display: none;
+}
+
+div.tarea_finalizada{
+    font-family: 12px Arial, Helvetica, sans-serif;
+    text-decoration: line-through;
+}
+
+div.tarea_no_finalizada{
+    font-family: 12px Arial, Helvetica, sans-serif;   
+}
