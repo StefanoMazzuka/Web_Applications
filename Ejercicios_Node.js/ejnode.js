@@ -5,17 +5,19 @@ function freplace(fichero, buscar, sustituir, callback) {
             encoding: "utf-8"
         },
         function (err, content) {
-            if (!err) {
+            if (err) callback(new Error("Error de lectura"));
+            else {
                 content = content.replace(buscar, sustituir);
                 fs.writeFile("dataModified.txt", content, {
                     encoding: "utf-8"
-                }, function (err, content) {
-                    if (!err) console.log("Archivo modificado correctamente");
+                }, function (err) {
+                    if (err) callback(new Error("Error de escritura"));
+                    else callback(null);
                 });
             }
         });
 }
 
 module.exports = {
-    freplace : freplace
+    freplace: freplace
 };

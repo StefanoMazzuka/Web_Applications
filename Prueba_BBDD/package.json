@@ -1,0 +1,14 @@
+{
+  "name": "prueba_bbdd",
+  "version": "1.0.0",
+  "description": "Proyecto para gestionar bbdd",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefano",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}

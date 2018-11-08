@@ -5,7 +5,8 @@ fs.readFile("data.txt", {
         encoding: "utf-8"
     },
     function (err, content) {
-        if (!err) {
+        if (err) console.log("Error: " + err);
+        else {
             content = content.replace(/\s+/g,' ');
             fs.writeFile("dataModified.txt", content, {
                 encoding: "utf-8"
