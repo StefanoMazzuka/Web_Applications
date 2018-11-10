@@ -29,3 +29,38 @@ function cb_getUserImageName(err, result) {
     if (err) console.log(err.message);
     else console.log(result);
 }
+
+daoTasks.getAllTasks("usuario@ucm.es", cb_getAllTask);
+
+function cb_getAllTask(err, result) {
+    if (err) console.log(err.message);
+    else console.log(result);
+}
+
+let task = {
+    user: "usuario@ucm.es",
+    text: "Nueva tarea",
+    tags: ["practica", "personal"],
+    done: 0
+};
+
+daoTasks.insertTask("usuario@ucm.es", task, cb_insertTask);
+
+function cb_insertTask(err) {
+    if (err) console.log(err.message);
+    else console.log("Tarea agregada");
+}
+
+daoTasks.markTaskDone(31, cb_markTaskDone);
+
+function cb_markTaskDone(err) {
+    if (err) console.log(err.message);
+    else console.log("Tarea completada marcada");
+}
+
+daoTasks.deleteCompleted("usuario@ucm.es", cb_deleteCompleted);
+
+function cb_deleteCompleted(err) {
+    if (err) console.log(err.message);
+    else console.log("Tareas completadas eliminadas");
+}
