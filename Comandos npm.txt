@@ -1,0 +1,8 @@
+npm init
+npm install mysql --save
+npm install express --save
+npm install -g nodemon
+nodemon app.js
+npm install ejs --save
+npm install morgan --save
+npm install body-parser --save
