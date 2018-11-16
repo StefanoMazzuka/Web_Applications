@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Gestión de tareas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/css/tasks.css">
+	<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="titulo header">
+		<h1 id="titulo">
+			TAREAS
+		</h1>
+	</div>
+	<div class="usuario header">
+		<div>
+			<img src="img/user.png">
+		</div>
+		<div class="datosUsuario">
+			<p>HOLA</p>
+			<a href="http://www.google.com">Desconectado</a>
+		</div>
+	</div>
+
+	<div class="main">
+
+		<!-- TAREAS -->
+		<% var taskType = ""; %>
+		<% for(var i = 0; i < taskList.length; i++) { %>
+			<% if (taskList[i].done == 1) {
+				taskType = "tarea_finalizada";
+			} else {
+				taskType = "tarea_no_finalizada";
+			} %>
+			<div class=" <%= taskType %> ">
+				<div class="texto_tara">
+					<p> <%= taskList[i].text %> </p>
+					<div class="tags">
+						<% for(var j = 0; j < taskList[i].tags.length; j++) { %>
+							<p class="tag"> <%= taskList[i].tags[j] %> </p>
+						<% } %>
+					</div>
+				</div>
+				<div>
+					<a href="http://www.google.com">Marcar finalizada</a>
+				</div>
+			</div>
+		<% } %>
+
+		<!-- AGREGAR TAREAS -->
+		<div class="agregar_tarea">
+			<form>
+				<input type="text">
+				<input type="submit" value="Añadir">
+			</form>
+		</div>
+
+		<!-- ELIMINAR TAREAS -->
+		<div class="eliminar_tareas">
+			<a href="http://google.com">Eliminar tareas completadas</a>
+		</div>
+	</div>
+</body>
+
+</html>
