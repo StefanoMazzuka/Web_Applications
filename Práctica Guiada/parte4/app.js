@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.listen(3000, function (err) {
-    if (err) console.log("error");
-    else console.log("bien");
+    if (err) console.log(err);
+    else console.log("Escuchando puerto 3000");
 });
 
 app.get("/", function (request, response) {
@@ -36,49 +36,54 @@ app.get("/", function (request, response) {
 app.get("/tasks", function (request, response) {
     response.status(200);
     daoTasks.getAllTasks("usuario@ucm.es", function (err, tasks) {
-       if (err) console.log(err);
-       else {
+        if (err) console.log(err);
+        else {
             response.render("tasks.ejs", {
-               taskList: tasks 
+                taskList: tasks
             });
         }
     });
 });
 
-function createTask(texto){
-	let task = {};
-	task.text = texto.replace(/\@\w+/g,'');
-	task.text = task.text.trim();
-    task.tags = texto.match(/\@\w+/g);
-    for(let i = 0; i < task.tags.length; i++) {
-        task.tags[i] = task.tags[i].substring(1);
+function createTask(text) {
+    let task = {};
+    task.text = text.replace(/\@\w+/g, '');
+    task.text = task.text.trim();
+    if (text != "") {
+        task.tags = text.match(/\@\w+/g);
+        if (task.tags != null) {
+            for (let i = 0; i < task.tags.length; i++) {
+                task.tags[i] = task.tags[i].substring(1);
+            }
+        } else task.tags = [];
+        task.done = 0;
     }
-    task.done = 0;
-	return task;
+    return task;
 }
 
 app.post("/addTask", function (request, response) {
     response.status(200);
     let task = createTask(request.body.task);
-    daoTasks.insertTask("usuario@ucm.es", task, function (err, result) {
-        if (err) console.log(err);
-        else response.redirect("/tasks");
-    });
+    if (task !== 'undefined' && task !== null) {
+        
+        daoTasks.insertTask("usuario@ucm.es", task, function (err, result) {
+            if (err) console.log(err);
+            else response.redirect("/tasks");
+        });
+    }
 });
 
 app.get("/finish/:taskId", function (request, response) {
     response.status(200);
     daoTasks.markTaskDone(request.params.taskId, function (err, tasks) {
-       if (err) console.log(err);
-       else response.redirect("/tasks");
+        if (err) console.log(err);
+        else response.redirect("/tasks");
     });
 });
 
-/*
-app.get("/tasks", function (request, response) {
-    response.status(200);
-    response.render("prueba.ejs", {
-        user: "Stefano"
+app.get("/deleteCompleted", function (request, response) {
+    daoTasks.deleteCompleted("usuario@ucm.es", function (err, result) {
+        if (err) console.log(err);
+        else response.redirect("/tasks");
     });
 });
-*/

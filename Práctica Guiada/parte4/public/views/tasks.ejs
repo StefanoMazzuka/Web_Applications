@@ -38,11 +38,13 @@
 			<div class="task">
 				<div class="<%= taskType %>">
 					<p> <%= taskList[i].text %> </p>
-					<div class="tags">
+					<% if (taskList[i].tags !== 'undefined' && taskList[i].tags.length > 0) { %>
+					<div class="tags">				
 						<% for(var j = 0; j < taskList[i].tags.length; j++) { %>
 							<p class="tag"> <%= taskList[i].tags[j] %> </p>
 						<% } %>
 					</div>
+					<% } %>
 				</div>
 				<% if (taskType === "not_finished_task_text") { %>
 				<div>
@@ -64,8 +66,8 @@
 
 		<!-- ELIMINAR TAREAS -->
 		<div class="delete_tasks">
-			<a href="http://google.com">Eliminar tareas completadas</a>
-		</div>
+			<a href="/deleteCompleted">Eliminar tareas completadas</a>
+		  </div>
 	</div>
 </body>
 
