@@ -62,7 +62,7 @@ class DAOTasks {
             if (err) callback(new Error(`Error al obtener la conexión: ${err.message}`));
             else {
                 // ... realizar consulta ...      
-                connection.query("INSERT INTO task(user, text, done) VALUES (?, ?, ?)", [task.user, task.text, task.done],
+                connection.query("INSERT INTO task(user, text, done) VALUES (?, ?, ?)", [email, task.text, task.done],
                     function (err, result) {
                         connection.release();
                         if (err) callback(new Error('Error en la consulta a la base de datos'));

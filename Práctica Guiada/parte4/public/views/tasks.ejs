@@ -26,7 +26,6 @@
 	</div>
 
 	<div class="main">
-
 		<!-- TAREAS -->
 		<% var taskType = ""; %>
 		<% for(var i = 0; i < taskList.length; i++) { %>
@@ -35,6 +34,7 @@
 			} else {
 				taskType = "tarea_no_finalizada";
 			} %>
+			
 			<div class=" <%= taskType %> ">
 				<div class="texto_tara">
 					<p> <%= taskList[i].text %> </p>
@@ -51,12 +51,15 @@
 		<% } %>
 
 		<!-- AGREGAR TAREAS -->
-		<div class="agregar_tarea">
-			<form>
-				<input type="text">
+		<form method="POST" action="addTask">
+			<div class="agregar_tarea">
+				<input type="text" name="addTask" id="formAddTask">
 				<input type="submit" value="Añadir">
-			</form>
-		</div>
+			</div>
+		</form>
+
+		
+		
 
 		<!-- ELIMINAR TAREAS -->
 		<div class="eliminar_tareas">
