@@ -67,15 +67,18 @@ class DAOTasks {
                         connection.release();
                         if (err) callback(new Error('Error en la consulta a la base de datos'));
                         else {
-                            let values = [];
-                            for (let i = 0; i < task.tags.length; i++) {
-                                values[i] = [result.insertId, task.tags[i]];
+                            if (task.tags.length > 0) {
+                                let values = [];
+                                for (let i = 0; i < task.tags.length; i++) {
+                                    values[i] = [result.insertId, task.tags[i]];
+                                }
+                                connection.query("INSERT INTO tag(taskId, tag) VALUES ?", [values],
+                                    function (err) {
+                                        if (err) callback(new Error('Error al insertar los tags'));
+                                        else callback(null);
+                                    });
                             }
-                            connection.query("INSERT INTO tag(taskId, tag) VALUES ?", [values],
-                                function (err) {
-                                    if (err) callback(new Error('Error al insertar los tags'));
-                                    else callback(null);
-                                });
+                            else callback(null);
                         }
                     });
             }

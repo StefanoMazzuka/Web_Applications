@@ -55,7 +55,8 @@ function createTask(text) {
             for (let i = 0; i < task.tags.length; i++) {
                 task.tags[i] = task.tags[i].substring(1);
             }
-        } else task.tags = [];
+        } 
+        else task.tags = [];
         task.done = 0;
     }
     return task;
@@ -64,8 +65,7 @@ function createTask(text) {
 app.post("/addTask", function (request, response) {
     response.status(200);
     let task = createTask(request.body.task);
-    if (task !== 'undefined' && task !== null) {
-        
+    if (task.text !== "") {    
         daoTasks.insertTask("usuario@ucm.es", task, function (err, result) {
             if (err) console.log(err);
             else response.redirect("/tasks");

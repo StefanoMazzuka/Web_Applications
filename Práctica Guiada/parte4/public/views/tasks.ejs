@@ -38,13 +38,11 @@
 			<div class="task">
 				<div class="<%= taskType %>">
 					<p> <%= taskList[i].text %> </p>
-					<% if (taskList[i].tags !== 'undefined' && taskList[i].tags.length > 0) { %>
 					<div class="tags">				
 						<% for(var j = 0; j < taskList[i].tags.length; j++) { %>
 							<p class="tag"> <%= taskList[i].tags[j] %> </p>
 						<% } %>
 					</div>
-					<% } %>
 				</div>
 				<% if (taskType === "not_finished_task_text") { %>
 				<div>
