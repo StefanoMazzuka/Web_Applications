@@ -30,7 +30,7 @@ app.listen(3000, function (err) {
 
 app.get("/", function (request, response) {
     response.status(200);
-    response.write("<p>HOLA</p>");
+    response.redirect("/tasks");
 });
 
 app.get("/tasks", function (request, response) {
@@ -58,9 +58,8 @@ function createTask(texto){
 }
 
 app.post("/addTask", function (request, response) {
-    let text = request.body.task;
+    response.status(200);
     let task = createTask(request.body.task);
-
     daoTasks.insertTask("usuario@ucm.es", task, function (err, result) {
         if (err) console.log(err);
         else response.redirect("/tasks");
@@ -69,13 +68,9 @@ app.post("/addTask", function (request, response) {
 
 app.get("/finish/:taskId", function (request, response) {
     response.status(200);
-    daoTasks.getAllTasks("usuario@ucm.es", function (err, tasks) {
+    daoTasks.markTaskDone(request.params.taskId, function (err, tasks) {
        if (err) console.log(err);
-       else {
-            response.render("tasks.ejs", {
-               taskList: tasks 
-            });
-        }
+       else response.redirect("/tasks");
     });
 });
 
