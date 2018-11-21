@@ -44,9 +44,13 @@ app.post("/addTask",function (request,response){
         tags : []
     };
 	
-	task.text=task.text.replace(/ +/g, ' ');
-	task.text = task.text.trim();
-	task.tags = request.body.addTask.match(/\@\w+/g);
+	task.text = task.text.replace(/\s/g, ' '); //remove spaces
+    task.text = task.text.trim(); //remove whitespace from both sides of a string
+    task.tags = request.body.addTask.match(/\@\w+/g); //get tags with @
+    for(var i = 0; i < task.tags.length; i++) {
+        //remove @
+        task.tags[i]= task.tags[i].substr(1);
+    }
     
     daoTasks.insertTask("usuario@ucm.es", task, function (err, result){
         if (err) console.log(err);
