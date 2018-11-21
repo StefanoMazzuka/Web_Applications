@@ -10,16 +10,16 @@
 
 <body>
 	<!-- HEADER -->
-	<div class="titulo header">
-		<h1 id="titulo">
+	<div class="title header">
+		<h1>
 			TAREAS
 		</h1>
 	</div>
-	<div class="usuario header">
+	<div class="user header">
 		<div>
 			<img src="img/user.png">
 		</div>
-		<div class="datosUsuario">
+		<div class="user_data">
 			<p>HOLA</p>
 			<a href="http://www.google.com">Desconectado</a>
 		</div>
@@ -31,12 +31,12 @@
 		<% var taskType = ""; %>
 		<% for(var i = 0; i < taskList.length; i++) { %>
 			<% if (taskList[i].done == 1) {
-				taskType = "tarea_finalizada";
+				taskType = "finished_task_text";
 			} else {
-				taskType = "tarea_no_finalizada";
+				taskType = "not_finished_task_text";
 			} %>
-			<div class=" <%= taskType %> ">
-				<div class="texto_tara">
+			<div class="task">
+				<div class="<%= taskType %>">
 					<p> <%= taskList[i].text %> </p>
 					<div class="tags">
 						<% for(var j = 0; j < taskList[i].tags.length; j++) { %>
@@ -44,14 +44,16 @@
 						<% } %>
 					</div>
 				</div>
+				<% if (taskType === "not_finished_task_text") { %>
 				<div>
 					<a href="http://www.google.com">Marcar finalizada</a>
 				</div>
+				<% } %>
 			</div>
 		<% } %>
 
 		<!-- AGREGAR TAREAS -->
-		<div class="agregar_tarea">
+		<div class="add_task">
 			<form>
 				<input type="text">
 				<input type="submit" value="Añadir">
@@ -59,7 +61,7 @@
 		</div>
 
 		<!-- ELIMINAR TAREAS -->
-		<div class="eliminar_tareas">
+		<div class="delete_tasks">
 			<a href="http://google.com">Eliminar tareas completadas</a>
 		</div>
 	</div>

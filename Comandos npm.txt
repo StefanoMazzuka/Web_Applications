@@ -6,3 +6,4 @@ nodemon app.js
 npm install ejs --save
 npm install morgan --save
 npm install body-parser --save
+npm install cookie-parser --save

@@ -1,0 +1,14 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+div.user {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+div.button {
+    margin-left: 10px;
+}

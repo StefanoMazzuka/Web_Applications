@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Lista</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/css/list.css">
+</head>
+
+<body>
+	<ul>
+		<% for (let i = 0; i < list.length; i++) { %>
+			<form action="delete" method="POST">
+				<li>
+					<div class="user">
+						<p>
+							<%= list[i] %>
+						</p>
+						<div class="button">
+							<input type="hidden" name="ident" value=<%=i %>>
+							<input type="submit" value="Delete">
+						</div>
+					</div>
+				</li>
+			</form>
+			<% } %>
+	</ul>
+</body>
+
+</html>

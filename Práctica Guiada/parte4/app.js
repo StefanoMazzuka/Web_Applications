@@ -30,15 +30,30 @@ app.get("/", function (request, response) {
 
 app.get("/tasks", function (request, response) {
     response.status(200);
+    let task1 = {
+        text: "Test task",
+        tags: ["hello", "bye"],
+        done: 1
+    };
+    let task2 = {
+        text: "Test task",
+        tags: ["hello", "bye"],
+        done: 0
+    };
+    let tasks = [task1, task2];
+    response.render("tasks.ejs", {
+        taskList: tasks 
+     });
+     /*
     daoTasks.getAllTasks("usuario@ucm.es", function (err, tasks) {
        if (err) console.log(err);
        else {
-           console.log(tasks[0].text);
             response.render("tasks.ejs", {
                taskList: tasks 
             });
         }
     });
+    */
 });
 /*
 app.get("/tasks", function (request, response) {

@@ -26,20 +26,20 @@ h1 {
     font: 80px 'MisoRegular';
 }
 
-div.titulo {
+div.title {
     display: flex;
     justify-content: center; /*Centrar el objeto dentro del div*/
     align-items: center;
 }
 
-div.usuario {
+div.user {
     display: flex;
-    justify-content: flex-end; /*Centrar el objeto dentro del div*/
+    justify-content: flex-end;
     align-items: center;
     margin: 10px;
 }
 
-div.datosUsuario {
+div.user_data {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -60,7 +60,7 @@ div.main {
     font: 30px 'MisoRegular';
 }
 
-div.tarea_no_finalizada {
+div.task {
     margin-top: 25px;
     padding: 10px;
     border: solid #EBACBC;
@@ -68,18 +68,15 @@ div.tarea_no_finalizada {
     justify-content: space-between;
 }
 
-div.tarea_finalizada {
-    margin-top: 25px;
-    padding: 10px;
-    border: solid #EBACBC;
-    text-decoration:line-through;
-    display: flex;
-    justify-content: space-between;
-}
-
-div.texto_tara {
+div.not_finished_task_text {
     display: flex;
     flex-direction: row;
+}
+
+div.finished_task_text {
+    display: flex;
+    flex-direction: row;
+    text-decoration:line-through;
 }
 
 div.tags {
@@ -87,7 +84,7 @@ div.tags {
     flex-direction: row;
     margin-left: 10px;
     margin-right: 10px;
-    justify-content: center; /*Centrar el objeto dentro del div*/
+    justify-content: center;
     align-items: center;
 }
 
@@ -100,13 +97,13 @@ div.tags {
     border: solid white 2px;
 }
 
-div.agregar_tarea {
+div.add_task {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-div.eliminar_tareas {
+div.delete_tasks {
     display: flex;
     justify-content: center;
     align-items: center;
