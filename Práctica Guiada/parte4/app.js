@@ -38,6 +38,7 @@ app.get("/tasks", function (request, response) {
     daoTasks.getAllTasks("usuario@ucm.es", function (err, tasks) {
         if (err) console.log(err);
         else {
+            console.log(tasks[0].tags);
             response.render("tasks.ejs", {
                 taskList: tasks
             });
