@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Gestión de tareas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/css/tasks.css">
+	<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="title header">
+		<h1>
+			TAREAS
+		</h1>
+	</div>
+	<div class="user header">
+		<div>
+			<img src="img/user.png">
+		</div>
+		<div class="user_data">
+			<p>HOLA</p>
+			<a href="http://www.google.com">Desconectado</a>
+		</div>
+	</div>
+
+	<div class="main">
+
+		<!-- TAREAS -->
+		<% var taskType = ""; %>
+		<% for(var i = 0; i < taskList.length; i++) { %>
+			<% if (taskList[i].done == 1) {
+				taskType = "finished_task_text";
+			} else {
+				taskType = "not_finished_task_text";
+			} %>
+			<div class="task">
+				<div class="<%= taskType %>">
+					<p> <%= taskList[i].text %> </p>
+					<% if (taskList[i].tags[0] !== null) { %>
+					<div class="tags">				
+						<% for(var j = 0; j < taskList[i].tags.length; j++) { %>
+							<p class="tag"> <%= taskList[i].tags[j] %> </p>
+						<% } %>
+					</div>
+					<% } %>
+				</div>
+				<% if (taskType === "not_finished_task_text") { %>
+				<div>
+					<a href ="/finish/<%=taskList[i].id%>">Marcar finalizada</a>
+				</div>
+				<% } %>
+			</div>
+		<% } %>
+
+		<!-- AGREGAR TAREAS -->
+		<div class="add_task">
+					<form method="POST" action="addTask">
+			<div class="agregar_tarea">
+				<input type="text" name="task">
+				<input type="submit" value="Añadir">
+			</div>
+		</form>
+		</div>
+
+		<!-- ELIMINAR TAREAS -->
+		<div class="delete_tasks">
+			<a href="/deleteCompleted">Eliminar tareas completadas</a>
+		  </div>
+	</div>
+</body>
+
+</html>
