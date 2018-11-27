@@ -18,7 +18,7 @@ class DAOTasks {
                     function (err, rows) {
                         connection.release();
                         if (err) callback(new Error('Error en la consulta a la base de datos'), null);
-                        else {
+                        else if (rows.length > 0) {
                             let task = {
                                 id: rows[0].id,
                                 text: rows[0].text,
@@ -46,6 +46,7 @@ class DAOTasks {
                             tasks.push(task);
                             callback(null, tasks);
                         }
+                        else callback(null, []);
                     });
             }
         });

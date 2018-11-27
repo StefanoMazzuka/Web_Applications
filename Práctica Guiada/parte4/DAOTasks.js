@@ -25,7 +25,7 @@ class DAOTasks {
                                 tags: [],
                                 done: rows[0].done
                             };
-                            if (rows[0].tag !== null) task.tags.push(rows[0].tag);
+                            task.tags.push(rows[0].tag);
                             let tasks = [];
 
                             let j = 0;

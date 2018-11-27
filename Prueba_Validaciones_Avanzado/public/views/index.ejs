@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validación de formularios</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Formulario de registro</h1>
+        <%if (errores.length>0) {%>
+            <% include("flash") %>
+            <%}%>
+                <form method="post" action="procesar_formulario">
+                    <div>Nombre de usuario:
+                        <input type="text" name="login">
+                    </div>
+                    <div>Contraseña
+                        <input type="password" name="pass">
+                    </div>
+                    <div>Email:
+                        <input type="text" name="email">
+                    </div>
+                    <div>Fecha de nacimiento(mm-dd-aaaa):
+                        <input type="text" name="fechaNacimiento">
+                        </di <div>
+                        <input type="submit" name="Aceptar">
+                    </div>
+                </form>
+    </div>
+</body>
+
+</html>
